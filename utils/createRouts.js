@@ -40,7 +40,7 @@ const createRouts = async (arrayOfCities, stops) => {
 
     const getCountryObject = async countryName => {
         let result;
-        await axios.get(`https://travbase-server.herokuapp.com/countries/${countryName}`, {
+        await axios.get(`https://travbase-server.vercel.app/countries/${countryName}`, {
             headers: {"Content-Type": "application/json"}
         }).then(res => result = res.data).catch(error => console.log(error));
         return result;
