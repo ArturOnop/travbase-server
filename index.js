@@ -79,7 +79,7 @@ server.post("/filter", (req, response) => {
     CityModel.find(countries[0] ? {country: {$in: countries}} : {}).then((data) => {
         let filtered = citiesFilter(data, req.body);
         if (filtered.length >= req.body.stops) {
-            let shuffledAndCut = shuffleArray(filtered).slice(0, 7);
+            let shuffledAndCut = shuffleArray(filtered).slice(0, 5);
             createRouts(shuffledAndCut, req.body.stops).then(res => response.json(res));
         } else response.json({message: `No route found. Try other filters`})
     });
